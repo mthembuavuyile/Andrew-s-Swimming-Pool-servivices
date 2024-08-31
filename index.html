@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew's Swimming Pool Services</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1E90FF;
+            --secondary-color: #87CEEB;
+            --accent-color: #FFD700;
+            --text-color: #333;
+            --background-color: #f0f8ff;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            animation: ripple 15s infinite linear;
+            z-index: 1;
+        }
+        @keyframes ripple {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .tagline {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            position: relative;
+            z-index: 2;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .service-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 16px rgba(0,0,0,0.2);
+        }
+        .service-item i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .contact {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .contact-item {
+            margin: 10px;
+        }
+        .contact-item i {
+            margin-right: 10px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #FFC400;
+        }
+        .water-animation {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230099ff" fill-opacity="0.5" d="M0,32L48,80C96,128,192,224,288,224C384,224,480,128,576,90.7C672,53,768,75,864,96C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            animation: wave 15s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes wave {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 1440px; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .services {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Andrew's Swimming Pool Services</h1>
+            <p class="tagline">The "A" Team in Pool Repairs since 1983</p>
+        </header>
+        <div class="services">
+            <div class="service-item">
+                <i class="fas fa-swimming-pool"></i>
+                <h3>New Pool Construction</h3>
+                <p>Building your dream pool from the ground up</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-tools"></i>
+                <h3>Pump & Motor Repairs</h3>
+                <p>Expert repairs and replacements</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Pool Renovations</h3>
+                <p>Breathe new life into your existing pool</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Weekly Pool Service</h3>
+                <p>Regular maintenance for crystal clear water</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-brush"></i>
+                <h3>Marble Plaster</h3>
+                <p>Beautiful and durable pool finishes</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-wrench"></i>
+                <h3>Fiberglass Repairs</h3>
+                <p>Restoring and reinforcing fiberglass pools</p>
+            </div>
+        </div>
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <p>For all your pool requirements, big or small</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>Office: 031 468 2131</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email: andrewspoolservices@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-user"></i>
+                    <span>Akesh: 083 556 4536</span>
+                </div>
+            </div>
+            <a href="#" class="cta-button">Get a Free Quote</a>
+        </div>
+    </div>
+    <div class="water-animation"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const serviceItems = document.querySelectorAll('.service-item');
+            serviceItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
+            });
+        });
+
+        const ctaButton = document.querySelector('.cta-button');
+        ctaButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you shortly to provide a free quote.');
+        });
+    </script>
+</body>
+</html>
