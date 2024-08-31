@@ -45,6 +45,7 @@
             animation: ripple 15s infinite linear;
             z-index: 1;
         }
+        
         @keyframes ripple {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -155,6 +156,7 @@
         nav {
             background-color: rgba(240, 248, 255, 0.9);
             position: fixed;
+            align-items: center;
             top: 0;
             left: 0;
             width: 100%;
@@ -182,6 +184,7 @@
             font-size: 1.5em;
             color: var(--primary-color);
             cursor: pointer;
+            margin-right: 20px;
         }
         .nav-menu {
             display: flex;
@@ -308,7 +311,7 @@
     </div>
     <div class="water-animation"></div>
     <footer>
-        <p>© 2024 Andrew's Swimming Pool Services. All Rights Reserved.</p>
+        <p>© 2023 Andrew's Swimming Pool Services. All Rights Reserved.</p>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
