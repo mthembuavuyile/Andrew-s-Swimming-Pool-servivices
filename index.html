@@ -30,7 +30,7 @@
             background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             color: white;
             text-align: center;
-            padding: 40px 0;
+            padding: 80px 0 40px;
             position: relative;
             overflow: hidden;
         }
@@ -50,7 +50,7 @@
             to { transform: rotate(360deg); }
         }
         h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             margin-bottom: 10px;
             position: relative;
             z-index: 2;
@@ -107,6 +107,10 @@
         .contact-item i {
             margin-right: 10px;
         }
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
         .cta-button {
             display: inline-block;
             background-color: var(--accent-color);
@@ -140,17 +144,111 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        /* Navigation Bar */
+        nav {
+            background-color: rgba(240, 248, 255, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-item {
+            margin-left: 20px;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+        /* Responsive styles */
         @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 60px; /* Adjust this value based on the header height */
+                left: 0;
+                width: 100%;
+                background-color: rgba(240, 248, 255, 0.95);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-item {
+                margin: 10px 0;
+            }
             .services {
                 grid-template-columns: 1fr;
             }
             .contact-info {
                 flex-direction: column;
             }
+            h1 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Andrew's Pool Services</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="quote.html" class="nav-link">Quote</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <header>
             <h1>Andrew's Swimming Pool Services</h1>
@@ -194,21 +292,24 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <span>Office: 031 468 2131</span>
+                    <a href="tel:+27314682131">Office: 031 468 2131</a>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>Email: andrewspoolservices@gmail.com</span>
+                    <a href="mailto:andrewspoolservices@gmail.com">Email: andrewspoolservices@gmail.com</a>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-user"></i>
-                    <span>Akesh: 083 556 4536</span>
+                    <a href="tel:+27835564536">Akesh: 083 556 4536</a>
                 </div>
             </div>
-            <a href="#" class="cta-button">Get a Free Quote</a>
+            <a href="quote.html" class="cta-button">Get a Free Quote</a>
         </div>
     </div>
     <div class="water-animation"></div>
+    <footer>
+        <p>© 2024 Andrew's Swimming Pool Services. All Rights Reserved.</p>
+    </footer>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             const serviceItems = document.querySelectorAll('.service-item');
@@ -216,12 +317,22 @@
                 item.style.opacity = '0';
                 item.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
             });
-        });
 
-        const ctaButton = document.querySelector('.cta-button');
-        ctaButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Thank you for your interest! We will contact you shortly to provide a free quote.');
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (event) => {
+                const isClickInsideMenu = navMenu.contains(event.target);
+                const isClickOnToggle = navToggle.contains(event.target);
+                if (!isClickInsideMenu && !isClickOnToggle && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
         });
     </script>
 </body>
