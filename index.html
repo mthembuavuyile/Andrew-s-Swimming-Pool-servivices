@@ -236,6 +236,77 @@
                 font-size: 2em;
             }
         }
+        .about-us {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .about-us h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .slideshow-image {
+            width: 100%;
+            height: 400px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #666;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.8);
+            cursor: pointer;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.9);
+        }
+        .button-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #1c7ed6; /* A slightly darker shade for hover effect */
+}
+
     </style>
 </head>
 <body>
@@ -247,8 +318,8 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="quote.html" class="nav-link">Quote</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="https://www.andrewspools.co.za/" class="nav-link">Quote</a></li>
+                <li class="nav-item"><a href="https://www.andrewspools.co.za/" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -257,6 +328,13 @@
             <h1>Andrew's Swimming Pool Services</h1>
             <p class="tagline">The "A" Team in Pool Repairs since 1983</p>
         </header>
+        <div class="about-us">
+            <h2>About Us</h2>
+            <p>Est 1983 If you are looking to build, renovate or resurface your swimming pool, Andrew's Swimming pool services can offer a range of options how to make your pool look new again. We pride ourselves on providing top quality service with impeccable attention to detail using the highest quality products available.</p>
+            <p>With 30+ years' experience in pool renovations and repairs we have grown and evolved to include the full range of options available to rejuvenate any pool to suit your budget.</p>
+            <p>Services offered: Re-marble plaster, Fibreglass Resurfacing, New Mosaic Paving, Acid Wash, Once off clean ups, Sand changes, Pump and motor repair, Installation of new pumps and sand filters. We do it All... No job is too big or too small</p>
+            <p>If you are looking for a service that is reliable and honest give us a call. We are happy to provide free honest advice as to which options will suit your needs. For an obligation-free quote, make Andrew's Swimming pool services your first call today. You will not regret it!</p>
+        </div>
         <div class="services">
             <div class="service-item">
                 <i class="fas fa-swimming-pool"></i>
@@ -289,6 +367,31 @@
                 <p>Restoring and reinforcing fiberglass pools</p>
             </div>
         </div>
+        <div class="slideshow-container">
+            <div class="slideshow-image">
+                <img src="https://media.istockphoto.com/id/1753194976/photo/pool-floats-in-a-pool.jpg?s=612x612&w=0&k=20&c=OENVKpjCAgeJ67TPy-KfVIj09nCjPMkqZk91ulCI3Uc=" alt="Pool Image 1">
+            </div>
+            <div class="slideshow-image" style="display: none;">
+                <img src="https://media.istockphoto.com/id/1700606833/photo/swimming-pool-in-backyard-exterior-of-extraordinary-luxury-home.jpg?s=612x612&w=0&k=20&c=xxVmM6i9pCxTTjMcafpmDdp27ci0exWFrEjoU79C2Ms=" alt="Pool Image 2">
+            </div>
+            <div class="slideshow-image" style="display: none;">
+                <img src="https://media.istockphoto.com/id/829042860/photo/cleaning-swimming-pool-of-fallen-leaves-with-blue-skimmer.jpg?s=612x612&w=0&k=20&c=vS5rPxBy5m3fbcDurKJbWw-BYgAhwsc_7h5OkQ6zTos=" alt="Pool Image 3">
+            </div>
+            <div class="slideshow-image" style="display: none;">
+                <img src="https://media.istockphoto.com/id/1144675499/photo/before-and-after-pool-build-construction-site.jpg?s=612x612&w=0&k=20&c=NRYG1XperxNN4Bnk_hFar8hgMEbOUuvXDpAqlafvakQ=" alt="Pool Image 4">
+            </div>
+            <div class="slideshow-image" style="display: none;">
+                <img src="https://media.istockphoto.com/id/1329761936/photo/swimming-pool-and-patio-in-the-backyard-of-a-contemporary-home.jpg?s=612x612&w=0&k=20&c=-WEhm7jYesXYvoa-PDn58HWRBYgKDQUg4UACRNMzhdY=" alt="Pool Image 5">
+            </div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+        
+        <div class="button-container">
+            <a href="https://www.andrewspools.co.za/" class="cta-button">Visit the Original Page</a>
+        </div>        
+
+        </section>
         <div class="contact">
             <h2>Contact Us</h2>
             <p>For all your pool requirements, big or small</p>
@@ -306,7 +409,7 @@
                     <a href="tel:+27835564536">Akesh: 083 556 4536</a>
                 </div>
             </div>
-            <a href="quote.html" class="cta-button">Get a Free Quote</a>
+            <a href="https://www.andrewspools.co.za/" class="cta-button">Get a Quote</a>
         </div>
     </div>
     <div class="water-animation"></div>
@@ -337,6 +440,32 @@
                 }
             });
         });
+
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slideshow-image");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "flex";  
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+
+        function changeSlide(n) {
+            slideIndex += n;
+            let slides = document.getElementsByClassName("slideshow-image");
+            if (slideIndex > slides.length) {slideIndex = 1}
+            if (slideIndex < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "flex";
+        }
     </script>
 </body>
 </html>
